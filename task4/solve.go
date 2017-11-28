@@ -2,7 +2,6 @@ package main
 
 import (
 	"unicode"
-	"strings"
 )
 
 func RemoveEven(slice []int)(noeven [] int) {
@@ -18,7 +17,7 @@ func PowerGenerator(num int) (func() int) {
   arg := num
   ans := 1
   return func() (int) {
-    ans *= number
+    ans *= arg
     return ans
   }
 }
@@ -28,16 +27,16 @@ func DifferentWordsCount(str string)(int) {
 	current_word := ""
 	for _, symb := range(str) {
 		if unicode.IsLetter(symb) {
-			current_word = current_word + string(unicode.ToLower(rune(c)))
+			current_word = current_word + string(unicode.ToLower(rune(symb)))
 		} else {
 			if (len(current_word) != 0) {
-				diff_words[current_word] = true
+				words[current_word] = true
 			}
 			current_word = ""
 		}
 	}
 	if (len(current_word) != 0) {
-		diff_words[current_word] = true
+		words[current_word] = true
 	}
-	return len(diff_words)
+	return len(words)
 }
