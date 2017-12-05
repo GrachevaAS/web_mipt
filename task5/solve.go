@@ -11,7 +11,7 @@ type request struct {
 	Url string `json:"url"`
 }
 
-func shortener(w http.ResponseWriter, r *http.request) {
+func shortener(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		var req request
 		decoder := json.NewDecoder(r.Body)
